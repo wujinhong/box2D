@@ -96,8 +96,8 @@ package
 				setTimeout(randomInterval, int(Math.random() * 10000), flake);
 			}
 			
-			function randomInterval(target:Snow):void {
-				
+			function randomInterval(target:Snow):void
+			{
 				// Set the current Snow instance's x and y property 
 				target.x = Math.random()* 550-50;
 				target.y = -Math.random() * 200;
@@ -109,11 +109,16 @@ package
 				
 				var tween:String;
 				// ranScale is between 0.0 and 1.0
-				if (ranScale < 1) {
+				if (ranScale < 1)
+				{
 					_trail.slow.addTarget(target);
-				} else if (ranScale < 2) {
+				}
+				else if (ranScale < 2)
+				{
 					_trail.medium.addTarget(target);
-				} else {
+				}
+				else
+				{
 					_trail.fast.addTarget(target);
 				}
 			}

@@ -2,6 +2,7 @@ package
 {
 	import com.gordon.ILL;
 	
+	import flash.display.DisplayObject;
 	import flash.display.MovieClip;
 	import flash.display.Shape;
 	import flash.display.Stage;
@@ -12,6 +13,8 @@ package
 	import flash.utils.setTimeout;
 	
 	import impl.TestImpl;
+	
+	import moduleView.ForTest;
 
 	/**
 	 * @author Gordon
@@ -56,19 +59,16 @@ package
 			stage.addEventListener(MouseEvent.RIGHT_CLICK,noMenu);
 			
 			ll();
+			ssf();
 		}
 		
 		public function ll():void
 		{
-			if (TestImpl.get().hasOwnProperty("dizzy")) 
+			if (TestImpl.get().hasOwnProperty("dizzy"))
 			{
-				trace(123546);
+				trace( 123546, "hasOwnProperty(\"dizzy\")" );
 			}
-			if (TestImpl.get().hasOwnProperty("dizzy")) 
-			{
-				trace(123546);
-			}
-			if (TestImpl.get().hasOwnProperty("str")) 
+			if (TestImpl.get().hasOwnProperty("str"))
 			{
 				trace(123546);
 			}
@@ -77,7 +77,6 @@ package
 				trace(123546);
 			}
 		}
-		
 		
 		protected function noMenu(e:MouseEvent):void
 		{
@@ -123,10 +122,17 @@ package
 				}
 			}
 		}
-		
+		/**
+		 *实现接口方法 
+		 */		
 		public function ssf():void
 		{
-			
+			addForTest();
+		}
+		
+		private function addForTest():void
+		{
+			addChild(new ForTest() as DisplayObject);
 		}
 		
 		protected function llddf(e:MouseEvent):void
@@ -137,7 +143,9 @@ package
 			ss.filters = [new GlowFilter(Math.random()*0xFFFFFF)];
 			trace(e.localX,e.localY,e.stageX,e.stageY,e.movementX,e.movementY);
 		}
-		
+		/**
+		 *实现接口方法 
+		 */
 		protected function lldf(e:Event):void
 		{
 			ss.x = Math.random() * 15;

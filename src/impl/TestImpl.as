@@ -3,7 +3,8 @@ package impl
 	public class TestImpl
 	{
 		private static var _instance:TestImpl;
-		private var s:String = "";
+		private var s:String = "s";
+		public var s:String = "s123";
 		public var str:String = "123";
 		public function TestImpl()
 		{

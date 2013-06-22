@@ -24,7 +24,7 @@ package moduleView
 			
 			this.graphics.beginFill( 0xFF0000, .6 );
 			this.graphics.drawPath( commands, _data );
-			this.drawGraphicsData();
+//			this.drawGraphicsData();
 //			this.graphics.drawTriangles();
 			this.graphics.endFill();
 		}
@@ -62,8 +62,12 @@ package moduleView
 			pathCommands[3] = GraphicsPathCommand.LINE_TO;
 			pathCommands[4] = GraphicsPathCommand.LINE_TO;
 			
-			var pathCoordinates:Vector.<Number> = new Vector.<Number>(10, true);
-			pathCoordinates.push(10,10, 10,100, 100,100, 100,10, 10,10);
+			var pathCoordinates:Vector.<Number> = new Vector.<Number>( 10, true );
+			var l:int = pathCoordinates.length;
+			while ( --l > -1)
+			{
+				pathCoordinates[l] = 10 * Math.random();
+			}
 			
 			myPath = new GraphicsPath(pathCommands, pathCoordinates);
 		}

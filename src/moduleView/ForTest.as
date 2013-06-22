@@ -37,9 +37,9 @@ package moduleView
 			myFill.matrix = new Matrix();
 			myFill.matrix.createGradientBox(100, 100, 0);
 			
-			// establish the stroke properties
+			// establish the stroke properties,周围线条
 			var myStroke:GraphicsStroke = new GraphicsStroke(2);
-			myStroke.fill = new GraphicsSolidFill(0x000000);
+			myStroke.fill = new GraphicsSolidFill(0xFFFFFF);
 			
 			initMyPath();
 			
@@ -62,13 +62,9 @@ package moduleView
 			pathCommands[3] = GraphicsPathCommand.LINE_TO;
 			pathCommands[4] = GraphicsPathCommand.LINE_TO;
 			
-			var pathCoordinates:Vector.<Number> = new Vector.<Number>( 10, true );
-			var l:int = pathCoordinates.length;
-			while ( --l > -1)
-			{
-				pathCoordinates[l] = 10 * Math.random();
-			}
-			
+			var pathCoordinates:Vector.<Number> = new Vector.<Number>();
+			pathCoordinates.push(10,10, 10,100, 100,100, 100,10, 10,10);
+			pathCoordinates.fixed = true;
 			myPath = new GraphicsPath(pathCommands, pathCoordinates);
 		}
 	}

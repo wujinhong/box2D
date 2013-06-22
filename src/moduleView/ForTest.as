@@ -24,7 +24,7 @@ package moduleView
 			
 			this.graphics.beginFill( 0xFF0000, .6 );
 			this.graphics.drawPath( commands, _data );
-//			this.drawGraphicsData();
+			this.drawGraphicsData();
 //			this.graphics.drawTriangles();
 			this.graphics.endFill();
 		}

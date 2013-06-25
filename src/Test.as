@@ -1,6 +1,7 @@
 package
 {
 	import com.gordon.ILL;
+	import com.wujinhong.Customise;
 	
 	import flash.display.DisplayObject;
 	import flash.display.MovieClip;
@@ -13,8 +14,6 @@ package
 	import flash.utils.setTimeout;
 	
 	import impl.TestImpl;
-	
-	import moduleView.ForTest;
 
 	/**
 	 * @author Gordon
@@ -25,6 +24,7 @@ package
 		private var ss:Shape;
 		private var _trail:trail;
 		private var tf:TextField;
+		private var custom:DisplayObject;
 		public function Test()
 		{
 			this.stop();
@@ -44,14 +44,7 @@ package
 			ss.cacheAsBitmap = true;
 //			this.addEventListener(Event.ENTER_FRAME,lldf);
 			stage.addEventListener(MouseEvent.MOUSE_MOVE,llddf);
-			if(this.parent is Stage)
-			{
-				trace(123);
-			}
-			else
-			{
-				trace(456);
-			}
+			
 			trace(length);
 			_trail = new trail();
 			addChild(_trail);
@@ -132,7 +125,38 @@ package
 		
 		private function addForTest():void
 		{
-			addChild(new ForTest() as DisplayObject);
+			custom = new Customise() as DisplayObject;
+			addChild( custom );
+			custom.x = custom.y = 100;
+			
+			root_stage_parent();
+		}
+		private function root_stage_parent():void
+		{
+			if ( custom.root == custom.stage )
+			{
+				trace( "custom.root == custom.stage" );
+			}
+			if ( custom.root == custom.parent )
+			{
+				trace( "custom.root == custom.parent" );
+			}
+			if(this.parent == this.root)
+			{
+				trace( "this.parent == this.root" );
+			}
+			if(this == this.root)
+			{
+				trace( "this == this.root" );
+			}
+			if(this.parent is Stage)
+			{
+				trace( "this.parent is Stage" );
+			}
+			else
+			{
+				trace( "this.parent is not Stage" );
+			}
 		}
 		
 		protected function llddf(e:MouseEvent):void

@@ -10,6 +10,7 @@ package
 	import flash.events.Event;
 	import flash.events.MouseEvent;
 	import flash.filters.GlowFilter;
+	import flash.system.Capabilities;
 	import flash.text.TextField;
 	import flash.utils.setTimeout;
 	
@@ -69,6 +70,10 @@ package
 			{
 				trace(123546);
 			}
+			
+			var args:Vector.< String > = new Vector.<String>( 5, true );
+			args.push( "CRC_RES_LIST_FILE_PATH" );
+			args.push( "RES_CRC_LIST_FILE_PATH" );
 		}
 		
 		protected function noMenu(e:MouseEvent):void
@@ -122,7 +127,21 @@ package
 		{
 			addForTest();
 		}
-		
+		private function slash():void
+		{
+			var link:String = "F:\FlasCC\samples\01_HelloWorld";
+			if ( -1 != Capabilities.os.search( /Windows/ ) )
+			{
+				while ( -1 != link.search( /\\/ ) )
+				{
+					link = link.replace( /\\/, "/" );
+				}
+			}
+			if ( link.charAt() != "/" )
+			{
+				link = "/" + link;
+			}
+		}
 		private function addForTest():void
 		{
 			custom = new Customise() as DisplayObject;

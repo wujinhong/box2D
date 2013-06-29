@@ -150,6 +150,9 @@ package
 			
 			root_stage_parent();
 		}
+		/**
+		 *区分 root stage parent this
+		 */		
 		private function root_stage_parent():void
 		{
 			if ( custom.root == custom.stage )
